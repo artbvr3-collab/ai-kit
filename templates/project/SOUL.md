@@ -1,26 +1,26 @@
-# <Название проекта>
+# <Project name>
 
-<!-- Память проекта. Агент читает этот файл первым и обновляет перед пушем.
-     Держи коротким (до ~150 строк). Детали — в notes/. -->
+<!-- Project memory. Agents read this file first and update it before every push.
+     Keep it short (~150 lines max). Details go to notes/. -->
 
-## Что это
-Одним-двумя предложениями: что делает проект и для кого.
+## What it is
+One or two sentences: what the project does and for whom.
 
-## Как устроено
-- Стек:
-- Главные части и где они лежат:
-- Как запустить:
-- Как проверить (тесты, линтер):
+## How it works
+- Stack:
+- Main parts and where they live:
+- How to run:
+- How to check (tests, linter):
 
-## Фичи
-- <фича> — что делает, где живёт
+## Features
+- <feature> — what it does, where it lives
 
-## Решения
-<!-- Почему сделано именно так. Новое — сверху. -->
-- ГГГГ-ММ-ДД — <решение> — <почему>
+## Decisions
+<!-- Why things are the way they are. Newest first. -->
+- YYYY-MM-DD — <decision> — <why>
 
-## Сейчас в работе
+## In progress
 - 
 
-## Не трогать / осторожно
+## Careful / don't touch
 - 

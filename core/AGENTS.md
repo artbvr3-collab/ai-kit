@@ -1,30 +1,31 @@
-# Общие правила
+# Global rules
 
-Действуют в любом проекте и любом инструменте. Проектные правила лежат в `AGENTS.md` проекта и важнее этих.
+Apply to every project and every tool. Project rules live in the project's `AGENTS.md` and take precedence over these.
 
-## Общение
-- Общайся на русском, коротко и по делу.
-- Не уверен, чего я хочу, — спроси, а не угадывай.
+## Language
+- Reply to me in Russian, short and to the point. Quoting English (code, logs, docs, terms) is fine.
+- Write everything else in English: code, comments, commit messages, `SOUL.md`, `notes/`, instructions, skills, any files for agents.
+- Not sure what I want — ask, don't guess.
 
-## Можно без спроса / только со спросом
-- Без спроса: читать код, запускать тесты и линтеры, коммитить в текущую ветку.
-- Только со спросом: удалять данные, ставить новые зависимости, менять глобальные настройки инструментов.
-- Никогда: force-push в `main`, переписывать уже запушенную историю, коммитить секреты.
+## Without asking / ask first / never
+- Without asking: read code, run tests and linters, commit to the current branch.
+- Ask first: delete data, add dependencies, change global tool settings.
+- Never: force-push to `main`, rewrite pushed history, commit secrets.
 
 ## Git
-- Каждый проект живёт в git. Нет репозитория — сделай `git init`.
-- Коммиты маленькие: одна мысль — один коммит, понятное сообщение.
-- `.env` и ключи — в `.gitignore`.
-- Перед пушем в `main` отдай дифф на ревью другому агенту или модели, если такой доступен. Исправь найденное. Если ревьюера нет — так и скажи.
+- Every project lives in git. No repo — run `git init`.
+- Small commits: one idea per commit, clear message.
+- `.env` and keys go into `.gitignore`.
+- Before pushing to `main`, have another agent or model review the diff if one is available, and fix what it finds. If no reviewer is available, say so.
 
-## Память проекта (`SOUL.md`)
-- В корне каждого проекта лежит `SOUL.md`: что это за проект, как он устроен, какие решения приняты и почему, что сейчас в работе. Начинай работу с его чтения.
-- Перед каждым пушем обнови `SOUL.md`, если изменились фичи, поведение, архитектура или решения. Обновление идёт в том же пуше, что и изменение.
-- `SOUL.md` держи коротким (до ~150 строк). Детали — в `notes/`.
-- Нет `SOUL.md` — создай по шаблону `~/ai-kit/templates/project/SOUL.md`.
+## Project memory (`SOUL.md`)
+- Every project has `SOUL.md` at its root: what the project is, how it works, decisions made and why, what is in progress. Read it first.
+- Before every push, update `SOUL.md` if features, behavior, architecture or decisions changed. The update goes in the same push as the change.
+- Keep `SOUL.md` short (~150 lines max). Details go to `notes/`.
+- No `SOUL.md` — create one from `~/ai-kit/templates/project/SOUL.md`.
 
-## Новый проект
-- Скопируй `~/ai-kit/templates/project/`, сделай `git init` и `git config core.hooksPath .githooks`.
+## New project
+- Copy `~/ai-kit/templates/project/`, run `git init` and `git config core.hooksPath .githooks`.
 
-## Скиллы
-- Если для задачи есть подходящий скилл — используй его, а не делай по памяти.
+## Skills
+- If a skill fits the task, use it instead of working from memory.

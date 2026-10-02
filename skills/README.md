@@ -1,5 +1,5 @@
 # skills/
 
-Все мои скиллы, один источник правды. Формат: `skills/<имя>/SKILL.md`.
+All my skills, single source of truth. Format: `skills/<name>/SKILL.md`.
 
-Заполняется после инвентаризации (`INVENTORY.md`): туда переезжают скиллы, разбросанные по инструментам и проектам. Инструменты подключают их симлинками (`SETUP.md`).
+Filled after the inventory (`INVENTORY.md`): skills scattered across tools and projects move here. Tools link to them with symlinks (`SETUP.md`).

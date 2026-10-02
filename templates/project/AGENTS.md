@@ -1,5 +1,5 @@
-# Правила проекта
+# Project rules
 
-Сначала прочитай `SOUL.md`. Общие правила — в глобальных инструкциях (`~/ai-kit/core/AGENTS.md`), здесь только то, что специфично для этого проекта.
+Read `SOUL.md` first. Global rules are in the global instructions (`~/ai-kit/core/AGENTS.md`); this file holds only what is specific to this project.
 
-<!-- Проектные правила: команды запуска и тестов, соглашения, запреты. -->
+<!-- Project rules: run and test commands, conventions, restrictions. -->

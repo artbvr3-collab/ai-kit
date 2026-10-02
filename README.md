@@ -1,25 +1,25 @@
 # ai-kit
 
-Мои правила работы с ИИ-агентами — одни на все инструменты (Claude Code, Codex, Cursor, Hermes, GLM).
+My rules for working with AI agents — one set for every tool (Claude Code, Codex, Cursor, Hermes, GLM).
 
 ```
-core/AGENTS.md         общие правила: git, память проекта, что можно без спроса
-skills/                все скиллы в одном месте
-templates/project/     заготовка нового проекта: SOUL.md, AGENTS.md, notes/, pre-push хук
-INVENTORY.md           агент находит всё, что уже стоит на компе (ничего не меняя)
-SETUP.md               агент подключает ai-kit к своему инструменту
-inventory/             отчёты инвентаризации
+core/AGENTS.md         global rules: language, git, project memory, what needs asking
+skills/                all skills in one place
+templates/project/     new project skeleton: SOUL.md, AGENTS.md, notes/, pre-push hook
+INVENTORY.md           an agent finds everything already installed (changes nothing)
+SETUP.md               an agent connects its tool to ai-kit
+inventory/             inventory reports
 ```
 
-## Как начать
-1. `git clone <этот репозиторий> ~/ai-kit`
-2. В Claude Code: «Прочитай `~/ai-kit/INVENTORY.md` и выполни». Разбираем отчёт, переносим скиллы в `skills/`.
-3. В каждом инструменте по очереди: «Прочитай `~/ai-kit/SETUP.md` и настрой себя».
+## Getting started
+1. `git clone <this repo> ~/ai-kit`
+2. In Claude Code: "Read `~/ai-kit/INVENTORY.md` and follow it." Review the report, move skills into `skills/`.
+3. In each tool, one at a time: "Read `~/ai-kit/SETUP.md` and set yourself up."
 
-## Как менять правила
-Правишь файл в `~/ai-kit`, коммитишь, пушишь. Инструменты подключены ссылками — изменения подхватываются сразу. На другом компьютере: `git pull`.
+## Changing rules
+Edit the file in `~/ai-kit`, commit, push. Tools are connected by links, so changes apply right away. On another machine: `git pull`.
 
-## Как устроен проект
-- `SOUL.md` — память проекта: что это, как устроено, решения, статус. Агент читает его первым и обновляет перед пушем.
-- `.githooks/pre-push` не пускает пуш с изменениями кода без обновления `SOUL.md`. Мелочь, не влияющая на смысл: `SKIP_SOUL=1 git push`.
-- Перед пушем в `main` дифф ревьюит другой агент, если доступен.
+## Project layout
+- `SOUL.md` — project memory: what it is, how it works, decisions, status. Agents read it first and update it before pushing.
+- `.githooks/pre-push` blocks pushing code changes without a `SOUL.md` update. For changes that don't affect the project's meaning: `SKIP_SOUL=1 git push`.
+- Before pushing to `main`, another agent reviews the diff if one is available.

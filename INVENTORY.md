@@ -1,37 +1,37 @@
-# Инвентаризация: что у меня стоит
+# Inventory: what is installed
 
-Инструкция для агента. Запусти её в любом локальном инструменте (лучше Claude Code):
-«Прочитай `~/ai-kit/INVENTORY.md` и выполни».
+Instructions for an agent. Run them in any local tool (Claude Code preferred):
+"Read `~/ai-kit/INVENTORY.md` and follow it."
 
-## Главное правило
-**Ничего не меняй, не удаляй и не перемещай.** Только читай и составь отчёт.
-**Не выписывай секреты:** ключи, токены, пароли, содержимое `.env`. Для MCP и API — только названия.
+## Main rule
+**Do not change, delete or move anything.** Only read and write a report.
+**Do not copy secrets:** keys, tokens, passwords, `.env` contents. For MCP and APIs, names only.
 
-## Что найти
+## What to find
 
-1. **Установленные ИИ-инструменты.** Проверь Claude Code, Codex, Cursor, Hermes, GLM (как он запускается: отдельной программой или через другой инструмент с другим API), и всё похожее, что найдёшь. Для каждого — версия и папка с настройками.
+1. **Installed AI tools.** Check Claude Code, Codex, Cursor, Hermes, GLM (how it is launched: as its own program or through another tool with a different API), and anything similar you find. For each: version and config folder.
 
-2. **Глобальные инструкции.** Файлы вроде `CLAUDE.md`, `AGENTS.md`, `SOUL.md`, `GEMINI.md`, `.cursorrules` в папках настроек инструментов (`~/.claude`, `~/.codex`, `~/.cursor`, `~/.hermes`, `~/.config/*` и т.п.). Для каждого: путь, размер, краткое содержание в 2–3 строки.
+2. **Global instructions.** Files like `CLAUDE.md`, `AGENTS.md`, `SOUL.md`, `GEMINI.md`, `.cursorrules` in tool config folders (`~/.claude`, `~/.codex`, `~/.cursor`, `~/.hermes`, `~/.config/*`, etc.). For each: path, size, 2–3 line summary.
 
-3. **Скиллы.** Все `SKILL.md` в домашней папке (пропускай `node_modules`, `.git`, кэши, корзину). Для каждого:
-   - имя и описание (из шапки файла),
-   - путь, какому инструменту или проекту принадлежит,
-   - дата изменения,
-   - есть ли копии в других местах и одинаковые ли они (сравни хэши папок).
+3. **Skills.** Every `SKILL.md` under the home folder (skip `node_modules`, `.git`, caches, trash). For each:
+   - name and description (from the file header),
+   - path, which tool or project it belongs to,
+   - modification date,
+   - copies elsewhere and whether they are identical (compare folder hashes).
 
-4. **Slash-команды, хуки, настройки.** `commands/`, `hooks`, `settings.json`, `config.toml`, `config.yaml` — что настроено, без секретов.
+4. **Slash commands, hooks, settings.** `commands/`, `hooks`, `settings.json`, `config.toml`, `config.yaml` — what is configured, no secrets.
 
-5. **MCP-серверы.** Только названия и в каком инструменте подключены.
+5. **MCP servers.** Names only, and which tool they are connected to.
 
-6. **Проекты.** Git-репозитории в домашней папке, где есть `AGENTS.md`, `CLAUDE.md`, `SOUL.md` или свои скиллы. Путь и что из этого есть.
+6. **Projects.** Git repos under the home folder that have `AGENTS.md`, `CLAUDE.md`, `SOUL.md` or their own skills. Path and which of these they have.
 
-## Отчёт
+## Report
 
-Сохрани в `~/ai-kit/inventory/<имя-компьютера>-<ГГГГ-ММ-ДД>.md`:
+Save to `~/ai-kit/inventory/<hostname>-<YYYY-MM-DD>.md`:
 
-- таблица инструментов;
-- таблица скиллов: имя, где лежит, дубли, отличаются ли копии;
-- глобальные инструкции и чем они пересекаются или противоречат друг другу;
-- **предложение**: какие скиллы и правила перенести в `~/ai-kit/skills/` и `~/ai-kit/core/`, что выкинуть как устаревшее, где выбрать одну версию из нескольких.
+- table of tools;
+- table of skills: name, location, duplicates, whether copies differ;
+- global instructions and where they overlap or contradict each other;
+- **proposal**: which skills and rules to move to `~/ai-kit/skills/` and `~/ai-kit/core/`, what to drop as outdated, where to pick one version out of several.
 
-Покажи мне итог и спроси, коммитить ли отчёт в ai-kit.
+Show me the summary and ask whether to commit the report to ai-kit.

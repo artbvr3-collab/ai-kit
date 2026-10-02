@@ -1,41 +1,41 @@
-# Настройка инструмента под ai-kit
+# Connecting a tool to ai-kit
 
-Инструкция для агента. Запускается в каждом инструменте по очереди:
-«Прочитай `~/ai-kit/SETUP.md` и настрой себя».
+Instructions for an agent. Run them in each tool, one at a time:
+"Read `~/ai-kit/SETUP.md` and set yourself up."
 
-## Цель
-После настройки этот инструмент:
-1. читает общие правила из `~/ai-kit/core/AGENTS.md` как глобальные инструкции;
-2. видит все скиллы из `~/ai-kit/skills/`;
-3. подключён **ссылкой** на файлы ai-kit, а не их копией, — чтобы правка в ai-kit сразу доходила до всех инструментов.
+## Goal
+After setup, this tool:
+1. reads the global rules from `~/ai-kit/core/AGENTS.md` as its global instructions;
+2. sees every skill in `~/ai-kit/skills/`;
+3. is connected by **links** to ai-kit files, not copies, so an edit in ai-kit reaches every tool at once.
 
-## Жёсткие правила
-- Трогай **только глобальные настройки своего инструмента**. Проекты (в том числе бота) не меняй.
-- Перед любым изменением сделай бэкап в `~/ai-kit-backup/<ГГГГ-ММ-ДД>/<инструмент>/`.
-- Не удаляй существующие скиллы и инструкции, которых нет в ai-kit. Оставь как есть и перечисли их в отчёте.
-- Секреты в ai-kit не переноси.
+## Hard rules
+- Touch **only your own tool's global settings**. Do not change projects (including the bot).
+- Before any change, back up to `~/ai-kit-backup/<YYYY-MM-DD>/<tool>/`.
+- Do not delete existing skills or instructions that are not in ai-kit. Leave them and list them in the report.
+- Do not move secrets into ai-kit.
 
-## Шаги
-1. **Обнови ai-kit:** `git -C ~/ai-kit pull`. Если ai-kit лежит в другом месте — используй тот путь везде ниже.
-2. **Определи себя:** какой ты инструмент и где у тебя лежат глобальные инструкции и скиллы. Подсказки — в таблице ниже. Тебя нет в таблице или пути не совпадают — найди в документации своего инструмента.
-3. **Опиши текущее состояние:** что сейчас лежит в этих местах.
-4. **Покажи план:** что именно создашь, заменишь или свяжешь ссылкой. Для изменяемых файлов — дифф.
-5. **Спроси подтверждение** и жди ответа.
-6. **Сделай бэкап**, затем примени:
-   - **Глобальные инструкции.** Лучший вариант — импорт файла, если инструмент умеет (у Claude Code: строка `@~/ai-kit/core/AGENTS.md` в `~/.claude/CLAUDE.md`). Иначе — симлинк на `core/AGENTS.md`. Если в старых глобальных инструкциях было что-то, чего нет в `core/AGENTS.md`, — не выкидывай, перечисли мне.
-   - **Скиллы.** Для каждой папки `~/ai-kit/skills/<имя>/` — симлинк в папку скиллов инструмента под тем же именем. Если там уже есть скилл с таким именем — не перезаписывай, покажи разницу и спроси.
-   - **Нельзя записать в файл** (правила задаются только в интерфейсе приложения) — выдай готовый текст и скажи, куда вставить.
-   - **Windows без симлинков** — копируй и запиши в отчёт, что это копия и её надо обновлять повторным запуском SETUP.
-7. **Проверь:** правила и скиллы реально подхватываются (новая сессия, список скиллов, вопрос «какие у тебя глобальные правила»).
-8. **Отчёт:** что сделано, где бэкап, что осталось вне ai-kit.
+## Steps
+1. **Update ai-kit:** `git -C ~/ai-kit pull`. If ai-kit lives elsewhere, use that path everywhere below.
+2. **Identify yourself:** which tool you are and where your global instructions and skills live. Hints are in the table below. Not in the table, or paths don't match — check your tool's documentation.
+3. **Describe the current state:** what is in those locations now.
+4. **Show the plan:** exactly what you will create, replace or link. Diffs for files you change.
+5. **Ask for confirmation** and wait.
+6. **Back up**, then apply:
+   - **Global instructions.** Best option: import the file, if the tool supports it (Claude Code: the line `@~/ai-kit/core/AGENTS.md` in `~/.claude/CLAUDE.md`). Otherwise symlink to `core/AGENTS.md`. If the old global instructions had something that is not in `core/AGENTS.md`, don't drop it — list it for me.
+   - **Skills.** For each folder `~/ai-kit/skills/<name>/`, symlink it into the tool's skills folder under the same name. If a skill with that name already exists there, don't overwrite it — show the difference and ask.
+   - **Can't write to a file** (rules are set only in the app UI) — give me the ready text and tell me where to paste it.
+   - **Windows without symlinks** — copy, and note in the report that it is a copy and needs another SETUP run to update.
+7. **Verify** the rules and skills are actually picked up (new session, skill list, ask "what are your global rules").
+8. **Report** to me in Russian: what was done, where the backup is, what remains outside ai-kit.
 
-## Подсказки по инструментам
-Пути меняются от версии к версии — сверяйся с документацией, если что-то не на месте.
+## Tool hints
+Paths change between versions — check the documentation if something isn't where expected.
 
-| Инструмент | Глобальные инструкции | Скиллы |
+| Tool | Global instructions | Skills |
 |---|---|---|
-| Claude Code | `~/.claude/CLAUDE.md` (умеет `@импорт`) | `~/.claude/skills/<имя>/SKILL.md` |
-| Codex | `~/.codex/AGENTS.md` | `~/.codex/skills/` или `~/.agents/skills/` |
-| Cursor | User Rules в настройках приложения; в проектах читает `AGENTS.md` | см. документацию своей версии |
-| Hermes Agent | папка `~/.hermes/` (у Hermes свой `SOUL.md` — это личность агента, не путай с проектным) | `~/.hermes/skills/` |
-| GLM | если запускается через Claude Code или другой инструмент — настраивается вместе с ним, отдельно ничего не нужно | — |
+| Claude Code | `~/.claude/CLAUDE.md` (supports `@import`) | `~/.claude/skills/<name>/SKILL.md` |
+| Codex | `~/.codex/AGENTS.md` | `~/.codex/skills/` or `~/.agents/skills/` |
+| Cursor | User Rules in app settings; reads `AGENTS.md` in projects | see the docs for your version |
+| Hermes Agent | `~/.hermes/` folder (Hermes has its own `SOUL.md` — the agent's persona, not the project file) | `~/.hermes/skills/` |
+| GLM | if launched through Claude Code or another tool, it is set up together with that tool; nothing separate needed | — |

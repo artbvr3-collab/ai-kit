@@ -1,4 +1,4 @@
 # notes/
 
-Подробности, которые не помещаются в `SOUL.md`: планы, разборы, длинные описания фич.
-`SOUL.md` ссылается сюда, а не пересказывает.
+Details that don't fit in `SOUL.md`: plans, investigations, long feature descriptions.
+`SOUL.md` links here instead of repeating them.
