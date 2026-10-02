@@ -6,8 +6,6 @@
 [ "$SKIP_SOUL" = "1" ] && exit 0
 [ -f SOUL.md ] || exit 0
 
-zero=0000000000000000000000000000000000000000
-
 while read -r local_ref local_sha remote_ref remote_sha; do
   # Удаление ветки — проверять нечего.
   case "$local_sha" in *[!0]*) ;; *) continue ;; esac
