@@ -1,0 +1,35 @@
+#!/bin/sh
+# Не даёт запушить изменения кода без обновления SOUL.md.
+# Если изменение не влияет на смысл проекта (опечатка, мелкий фикс):
+#   SKIP_SOUL=1 git push
+
+[ "$SKIP_SOUL" = "1" ] && exit 0
+[ -f SOUL.md ] || exit 0
+
+zero=0000000000000000000000000000000000000000
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  # Удаление ветки — проверять нечего.
+  case "$local_sha" in *[!0]*) ;; *) continue ;; esac
+
+  case "$remote_sha" in
+    *[!0]*) range="$remote_sha..$local_sha" ;;
+    *)      range="$local_sha --not --remotes" ;;  # новая ветка
+  esac
+
+  # shellcheck disable=SC2086
+  changed=$(git log --format= --name-only $range | sort -u | grep -v '^$')
+  [ -z "$changed" ] && continue
+
+  if echo "$changed" | grep -qx 'SOUL.md'; then
+    continue
+  fi
+  if echo "$changed" | grep -qvE '^(notes/|README|\.gitignore$)'; then
+    echo "pre-push: в пуше есть изменения, но SOUL.md не обновлён ($remote_ref)." >&2
+    echo "  Обнови SOUL.md (фичи, решения, статус) и закоммить." >&2
+    echo "  Если изменение не влияет на смысл проекта: SKIP_SOUL=1 git push" >&2
+    exit 1
+  fi
+done
+
+exit 0
