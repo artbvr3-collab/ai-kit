@@ -23,19 +23,20 @@ Every finished piece of work ends here. Nothing finished stays uncommitted or un
 
 ## 5. Review by another agent
 - Range: `@{u}..HEAD` (no upstream — all local commits).
-- Pick a reviewer that is **not you**, first one installed (`command -v`):
+- Pick a reviewer that is **not you**. Try in this order, skipping ones not installed (`command -v`):
   - `codex exec -s read-only "<prompt>"`
   - `claude -p "<prompt>"`
   - `gemini -p "<prompt>"`
+  - any other installed agent CLI with a non-interactive mode (e.g. Grok Build) — check its `--help`.
 
-  Flags change between versions — check `--help` if a call fails.
+  A reviewer fails (not logged in, no subscription, limits, timeout) → move on to the next one. Flags change between versions — check `--help` if a call errors on arguments.
 - Run it in the repo root with this prompt:
   `Review commits <range> in this repository following ~/ai-kit/skills/review/SKILL.md. Do not modify any files.`
 - Act on the result:
   - `BLOCKING` → fix, commit, review again (once). Still blocking → stop and report to me.
   - `SHOULD` → fix if small, otherwise list it in the report.
   - `NIT` → fix only if trivial.
-- No other agent available or it fails (not logged in, limits, timeout) → review yourself using the same checklist and say clearly in the report: "external review not done: <reason>".
+- All reviewers unavailable or failed → review yourself using the same checklist and say clearly in the report: "external review not done: <reason>".
 
 ## 6. Push
 - `git push` (`git push -u origin <branch>` if no upstream). No remote → tell me.
