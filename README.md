@@ -23,7 +23,7 @@ Edit the file in `~/ai-kit`, commit, push. Tools are connected by links, so chan
 Everything goes through commits:
 - `start` — new project: template, git, `SOUL.md`, private GitHub repo.
 - work in small commits;
-- `ship` — commit → checks → `SOUL.md` update → review by another agent (Codex / Claude / Gemini) → push. Runs at the end of every task.
+- `ship` — commit → checks → `SOUL.md` update → independent review in a separate chat or subagent → push. Runs at the end of every task.
 - `review` — the reviewer's checklist and output format; also usable on its own.
 
 ## Project layout

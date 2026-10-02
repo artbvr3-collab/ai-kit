@@ -16,7 +16,7 @@ Apply to every project and every tool. Project rules live in the project's `AGEN
 - Every project lives in git. No repo — run `git init`.
 - Small commits: one idea per commit, clear message.
 - `.env` and keys go into `.gitignore`.
-- Finished work doesn't stay uncommitted or unpushed: at the end of every task that changed files, run the `ship` skill (commit → review by another agent → push).
+- Finished work doesn't stay uncommitted or unpushed: at the end of every task that changed files, run the `ship` skill (commit → independent review → push).
 
 ## Project memory (`SOUL.md`)
 - Every project has `SOUL.md` at its root: what the project is, how it works, decisions made and why, what is in progress. Read it first.
