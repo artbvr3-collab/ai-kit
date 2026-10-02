@@ -24,6 +24,7 @@ After setup, this tool:
 6. **Back up**, then apply:
    - **Global instructions.** Best option: import the file, if the tool supports it (Claude Code: the line `@~/ai-kit/core/AGENTS.md` in `~/.claude/CLAUDE.md`). Otherwise symlink to `core/AGENTS.md`. If the old global instructions had something that is not in `core/AGENTS.md`, don't drop it — list it for me.
    - **Skills.** For each folder `~/ai-kit/skills/<name>/`, symlink it into the tool's skills folder under the same name. If a skill with that name already exists there, don't overwrite it — show the difference and ask.
+   - **Retired skills.** `start`, `plan`, `build`, `change`, `vibe-coder`, `grok-plan`, `grok-worker` from the old workflow are replaced by ai-kit's `start`, `ship`, `review`. If old versions are in this tool's skill folders (e.g. `~/.claude/skills`, `~/.agents/skills`, `~/.codex/skills`), list them, ask once, back them up, remove them, then link the ai-kit ones. Copies inside projects and archives stay untouched.
    - **Can't write to a file** (rules are set only in the app UI) — give me the ready text and tell me where to paste it.
    - **Windows without symlinks** — copy, and note in the report that it is a copy and needs another SETUP run to update.
 7. **Verify** the rules and skills are actually picked up (new session, skill list, ask "what are your global rules").
@@ -37,7 +38,7 @@ Paths change between versions — check the documentation if something isn't whe
 | Claude Code | `~/.claude/CLAUDE.md` (supports `@import`) | `~/.claude/skills/<name>/SKILL.md` |
 | Codex | `~/.codex/AGENTS.md` | `~/.codex/skills/` or `~/.agents/skills/` |
 | Cursor | User Rules in app settings; reads `AGENTS.md` in projects | `~/.cursor/skills/` |
-| Hermes Agent | `~/.hermes/` is the bot team's own git repo: its `AGENTS.md` and `SOUL.md` (Odin persona) belong to the bot, **don't replace them** — at most add a short reference to `core/AGENTS.md` and ask first | `~/.hermes/skills/` (bot skills; leave as is) |
+| Hermes Agent | **Paused — skip unless I ask.** `~/.hermes/` is the bot team's own git repo: its `AGENTS.md` and `SOUL.md` (Odin persona) belong to the bot, **don't replace them** — at most add a short reference to `core/AGENTS.md` and ask first | `~/.hermes/skills/` (bot skills; leave as is) |
 | ZCode (GLM) | see ZCode docs | reads user skills from `~/.agents/skills/` |
 | Gemini CLI | `~/.gemini/GEMINI.md` | see the docs for your version |
 | Grok Build | `~/.grok/AGENTS.md` | `~/.grok/skills/` |

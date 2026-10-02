@@ -16,7 +16,7 @@ Apply to every project and every tool. Project rules live in the project's `AGEN
 - Every project lives in git. No repo — run `git init`.
 - Small commits: one idea per commit, clear message.
 - `.env` and keys go into `.gitignore`.
-- Before pushing to `main`, have another agent or model review the diff if one is available, and fix what it finds. If no reviewer is available, say so.
+- Finished work doesn't stay uncommitted or unpushed: at the end of every task that changed files, run the `ship` skill (commit → review by another agent → push).
 
 ## Project memory (`SOUL.md`)
 - Every project has `SOUL.md` at its root: what the project is, how it works, decisions made and why, what is in progress. Read it first.
@@ -25,7 +25,7 @@ Apply to every project and every tool. Project rules live in the project's `AGEN
 - No `SOUL.md` — create one from `~/ai-kit/templates/project/SOUL.md`.
 
 ## New project
-- Copy `~/ai-kit/templates/project/`, run `git init` and `git config core.hooksPath .githooks`.
+- Use the `start` skill.
 
 ## Skills
 - If a skill fits the task, use it instead of working from memory.
