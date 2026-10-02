@@ -1,14 +1,14 @@
 ---
 name: ship
-description: Commit, get an independent review in a fresh context, and push. Use when work is ready to save or push — the user says "пушь", "запушь", "сохрани", "закоммить", "ship", $ship — and at the end of any task that changed files.
+description: Commit and get an independent review in a fresh context; push only when the user asks. Use when work is ready to save — the user says "сохрани", "закоммить", "ship", $ship, or "пушь"/"запушь" (then also push) — and at the end of any task that changed files.
 ---
 
-# ship: commit → review → push
+# ship: commit → review (→ push on request)
 
-Every finished piece of work ends here. Nothing finished stays uncommitted or unpushed.
+Every finished piece of work ends here. Nothing finished stays uncommitted. Git is local by default: push only when I ask for it in this task.
 
 ## 1. Look
-- `git status`, `git diff`, unpushed commits: `git log @{u}..HEAD` (no upstream yet — all local commits).
+- `git status`, `git diff`, and the commits made in this task.
 
 ## 2. Commit
 - Split uncommitted changes into small commits, one idea each, clear English messages.
@@ -24,7 +24,7 @@ Every finished piece of work ends here. Nothing finished stays uncommitted or un
 ## 5. Review in a fresh context
 The reviewer must not see this conversation — only the repo and the review checklist. Same model is fine; fresh eyes are the point.
 
-- Range: `@{u}..HEAD` (no upstream — all local commits).
+- Range: the commits made in this task (`<first>^..HEAD`). Earlier local commits were already reviewed when they were shipped.
 - Prompt: `Review commits <range> in this repository following ~/ai-kit/skills/review/SKILL.md. Do not modify any files.`
 - Reviewer, first that works:
   1. **Separate chat:** run `claude -p "<prompt>" --disallowedTools "Edit,Write,NotebookEdit"` in the repo root (check `claude --help` if flags error).
@@ -36,12 +36,13 @@ The reviewer must not see this conversation — only the repo and the review che
   - `SHOULD` → fix if small, otherwise list it in the report.
   - `NIT` → fix only if trivial.
 
-## 6. Push
-- `git push` (`git push -u origin <branch>` if no upstream). No remote → tell me.
+## 6. Push — only if I asked
+- I didn't say "пушь"/"запушь"/push in this task → skip this step. Never create a GitHub repo or add a remote on your own.
+- `git push` (`git push -u origin <branch>` if no upstream). No remote → tell me and stop.
 - The pre-push hook may block on `SOUL.md`: update it, or use `SKIP_SOUL=1 git push` only if the change really doesn't affect what the project is.
 - Never force-push `main`.
 
 ## 7. Report (in Russian, short)
-- commits pushed (one line each);
+- commits made (one line each);
 - reviewer and verdict, what was fixed;
-- where it was pushed.
+- pushed where, or "локально, не пушил".

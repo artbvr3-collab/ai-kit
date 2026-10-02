@@ -9,7 +9,7 @@ description: Create a new project with git, SOUL.md and the ai-kit template. Use
 - name;
 - what it is, in one sentence;
 - where (default `~/Projects/<name>`);
-- GitHub repo? (default: yes, private).
+- GitHub repo? (default: no — git stays local; I add GitHub later if I want it).
 
 ## 2. Create
 - Target folder exists and is not empty → stop and ask.
@@ -20,9 +20,9 @@ description: Create a new project with git, SOUL.md and the ai-kit template. Use
 - `SOUL.md`: name, "What it is" and whatever else is already known. Leave unknown sections empty, don't invent.
 - `AGENTS.md`: run/test commands, once known.
 
-## 4. First commit and push
+## 4. First commit
 - Commit: `Initial project skeleton`.
-- GitHub wanted: `gh repo create <name> --private --source . --push`. `gh` missing or not logged in → give me the command and stop there.
+- Only if I said yes to GitHub: `gh repo create <name> --private --source . --push`. `gh` missing or not logged in → give me the command and stop there.
 
 ## 5. Report (in Russian)
-Path, repo URL, what to do next.
+Path, repo URL if one was created, what to do next.

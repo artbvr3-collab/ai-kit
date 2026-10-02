@@ -17,15 +17,15 @@ inventory/             inventory reports
 3. In each tool, one at a time: "Read `~/ai-kit/SETUP.md` and set yourself up."
 
 ## Changing rules
-Edit the file in `~/ai-kit`, commit, push. Tools are connected by links, so changes apply right away. On another machine: `git pull`.
+Edit the file in `~/ai-kit` and commit; push to GitHub when you want it on other machines. Tools are connected by links, so changes apply right away. On another machine: `git pull`.
 
 ## Workflow
 Everything goes through commits:
-- `start` — new project: template, git, `SOUL.md`, private GitHub repo.
+- `start` — new project: template, local git, `SOUL.md`; private GitHub repo only if asked.
 - work in small commits;
-- `ship` — commit → checks → `SOUL.md` update → independent review in a separate chat or subagent → push. Runs at the end of every task.
+- `ship` — commit → checks → `SOUL.md` update → independent review in a separate chat or subagent → push only when asked. Runs at the end of every task.
 - `review` — the reviewer's checklist and output format; also usable on its own.
 
 ## Project layout
-- `SOUL.md` — project memory: what it is, how it works, decisions, status. Agents read it first and update it before pushing.
+- `SOUL.md` — project memory: what it is, how it works, decisions, status. Agents read it first and update it when finishing a task.
 - `.githooks/pre-push` blocks pushing code changes without a `SOUL.md` update. For changes that don't affect the project's meaning: `SKIP_SOUL=1 git push`.

@@ -1,6 +1,6 @@
 # <Project name>
 
-<!-- Project memory. Agents read this file first and update it before every push.
+<!-- Project memory. Agents read this file first and update it when finishing a task.
      Keep it short (~150 lines max). Details go to notes/. -->
 
 ## What it is
