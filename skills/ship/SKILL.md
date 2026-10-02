@@ -30,7 +30,7 @@ The reviewer must not see this conversation — only the repo and the review che
   1. **Separate chat:** run `claude -p "<prompt>" --disallowedTools "Edit,Write,NotebookEdit"` in the repo root (check `claude --help` if flags error).
   2. **Subagent:** if `claude` CLI is unavailable, spawn a subagent with the same prompt (Claude Code: Agent tool; other tools: their equivalent).
   3. **Self-review** with the same checklist — last resort; say in the report: "independent review not done: <reason>".
-- I ask for a second opinion from another vendor → also run `codex exec -s read-only "<prompt>"` or `gemini -p "<prompt>"`, whichever works.
+- I ask for a second opinion from another vendor → also run `gemini -p "<prompt>"`.
 - Act on the result:
   - `BLOCKING` → fix, commit, review again (once). Still blocking → stop and report to me.
   - `SHOULD` → fix if small, otherwise list it in the report.
