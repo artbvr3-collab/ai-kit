@@ -36,6 +36,9 @@ Paths change between versions — check the documentation if something isn't whe
 |---|---|---|
 | Claude Code | `~/.claude/CLAUDE.md` (supports `@import`) | `~/.claude/skills/<name>/SKILL.md` |
 | Codex | `~/.codex/AGENTS.md` | `~/.codex/skills/` or `~/.agents/skills/` |
-| Cursor | User Rules in app settings; reads `AGENTS.md` in projects | see the docs for your version |
-| Hermes Agent | `~/.hermes/` folder (Hermes has its own `SOUL.md` — the agent's persona, not the project file) | `~/.hermes/skills/` |
-| GLM | if launched through Claude Code or another tool, it is set up together with that tool; nothing separate needed | — |
+| Cursor | User Rules in app settings; reads `AGENTS.md` in projects | `~/.cursor/skills/` |
+| Hermes Agent | `~/.hermes/` is the bot team's own git repo: its `AGENTS.md` and `SOUL.md` (Odin persona) belong to the bot, **don't replace them** — at most add a short reference to `core/AGENTS.md` and ask first | `~/.hermes/skills/` (bot skills; leave as is) |
+| ZCode (GLM) | see ZCode docs | reads user skills from `~/.agents/skills/` |
+| Gemini CLI | `~/.gemini/GEMINI.md` | see the docs for your version |
+| Grok Build | `~/.grok/AGENTS.md` | `~/.grok/skills/` |
+| GLM via Hermes (Z.AI API) | set up together with Hermes; nothing separate | — |
