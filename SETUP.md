@@ -29,6 +29,7 @@ After setup, this tool:
    - **Windows without symlinks** — copy, and note in the report that it is a copy and needs another SETUP run to update.
 7. **Verify** the rules and skills are actually picked up (new session, skill list, ask "what are your global rules").
 8. **Report** to me in Russian: what was done, where the backup is, what remains outside ai-kit.
+9. **Update the hints:** if your tool wasn't in the table below or its paths were wrong, fix the table, then commit and push ai-kit (ask first).
 
 ## Tool hints
 Paths change between versions — check the documentation if something isn't where expected.
