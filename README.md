@@ -26,6 +26,9 @@ Everything goes through commits:
 - `ship` — commit → checks → `SOUL.md` update → independent review in a separate chat or subagent → push. Runs at the end of every task.
 - `review` — the reviewer's checklist and output format; also usable on its own.
 
+Outside the commit flow:
+- `audit` — a whole project, not a diff: map → parallel read-only agents → verified findings → report in `notes/audits/`. Fixes nothing. Project-specific rules (paths never to open, what never to run, threat model) live in that project's `notes/audit.md`.
+
 ## Project layout
 - `SOUL.md` — project memory: what it is, how it works, decisions, status. Agents read it first and update it before pushing.
 - `.githooks/pre-push` blocks pushing code changes without a `SOUL.md` update. For changes that don't affect the project's meaning: `SKIP_SOUL=1 git push`.
